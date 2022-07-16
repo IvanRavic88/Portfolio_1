@@ -1,0 +1,504 @@
+@import './colors.sass'
+$img_path: "../img/svg"
+
+%main-nav-link
+  display: inline-block
+  text-decoration: none
+  color: $just-white-color
+  font-weight: 500
+  font-size: 1.8rem
+  transition: all 0.3s
+  
+
+
+  // HEADER
+
+.header
+  margin:0 auto
+  max-width: 130rem
+  display: flex
+  justify-content: right
+  align-items: center
+
+  height: 9.6rem
+  position: relative
+
+// NAVIGATION
+
+.main-nav-list
+  text-transform: uppercase
+  list-style: none
+  display: flex
+  gap: 4.8rem
+  align-items: center
+
+.main-nav-link
+  &:link, &:visited
+    @extend %main-nav-link
+  &:hover, &:active
+    color: $second-accent-color
+
+.nav-resume
+  &:link, &:visited
+    color:$main-accent-color
+  &:active, &:hover
+    color:$second-accent-color
+
+
+// MOBILE
+
+.btn-mobile-nav
+  border: none
+  background: none
+  cursor: pointer
+  display: none
+  
+.icon-mobile-nav
+  height: 4.8rem
+  width: 4.8rem
+  color: $just-white-color
+
+
+.icon-mobile-nav[name="close-outline"]
+  display: none
+
+// HERO SECTION
+
+.section-hero
+  background-image: url("#{$img_path}/hero-img.png")
+  background-size: cover
+  background-position: center
+  padding: 0rem 12.8rem 12.8rem
+  min-height: 100vh
+  display: grid
+
+.hero
+  max-width: 130rem
+  margin: 0 auto
+  display: grid
+  grid-template-columns: 1fr 1fr
+  align-items: center
+  gap: 12.8rem
+
+
+.hero-description
+  font-size: 4rem
+  line-height: 1.6
+  margin-bottom: 4.8rem
+  color: $just-white-color
+
+.hero-title
+  font-size: 2.4rem
+  color: $second-accent-color
+  padding-bottom: 2rem
+  margin-top: 7rem
+
+
+.hero-symbols
+  display: flex
+  justify-content: space-between
+  img
+    max-width: 1.1%
+
+
+@keyframes bounce
+  0%
+    transform: translateY(0)
+  50%
+    transform: translateY(20%)
+  100%
+    transform: translateY(0)
+
+
+.hero-symbol
+  max-width: 2%
+  animation: bounce 1.5s infinite
+  animation-timing-function: ease
+
+
+
+//PROJECTS
+.projects
+  padding: 12.8rem
+  background-size: cover
+  background-position: center
+
+.center
+  text-align: center
+
+.project-card
+  display: grid
+  color: $just-white-color
+  background-image: url("../img/gagini_slatkisi.png")
+  background-size: cover
+  background-position: center
+  box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.5)
+  border: 2px solid $main-accent-color
+  // padding: 10rem 0 0
+  max-width: 50rem
+  border-radius: 0.5rem
+  overflow: hidden
+  transition: transform 500ms ease
+  &:hover, &:focus-within
+    transform: scale(1.05)
+
+.follower-checker
+  background-image: url("../img/follower_checker.png")
+
+
+
+  
+.card-content
+  padding: 1.5rem
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 1))
+  display: grid
+  gap: 3.2rem
+  transition-delay: 300ms
+
+
+
+
+.project-card:hover .card-content > *:not(.project-header),
+.project-card:focus-within .card-content > *:not(.project-header)
+  transition-delay: 1000ms
+  opacity: 1
+
+.project-card:hover .card-content,
+.project-card:focus-within .card-content
+  transform: translateY(0)
+  transition-delay: 500ms
+
+
+.project-header
+  position: relative
+  width: max-content
+  text-transform: uppercase
+  font-weight: 700
+  font-size: 1.8rem
+  color: $main-accent-color
+
+.project-header::after
+  content: ""
+  position: absolute
+  left: calc( 1.5rem * -1 )
+  bottom: 0
+  height: 3px
+  width: calc(100% + 1.5rem)
+  background: $second-accent-color
+  
+  transform-origin: left
+  transition: transform 500ms ease
+
+.project-card:hover .project-header::after,
+.project-card:focus-within .project-header::after
+  transform: scaleX(1)
+
+.project-links
+  display: block
+  text-transform: uppercase
+  span
+    font-size: 1.8rem
+    font-weight: 700
+    color: $main-accent-color
+
+.link-project
+  &:link, &:visited
+    display: inline-block
+    color: $just-white-color
+    text-decoration: none
+    font-size: 1.8rem
+    margin-top: 2rem
+    transition: all 0.3s
+  &:hover, &:active
+    color: $main-accent-color
+
+.project-describe
+  font-size: 1.8rem
+  line-height: 1.8
+
+@media(hover)
+  .card-content
+    transform: translateY(83%)
+    transition: transform 1000ms ease
+  .project-card:hover .card-content,
+  .project-card:focus-within .card-content
+    transform: translateY(0)
+    transition-delay: 500ms 
+  .card-content > *:not(.project-header)
+    opacity: 0 
+    transition: opacity 300ms linear
+  .project-card:focus-within .card-content
+    transition-duration: 0ms
+  .project-header::after
+    transform: scaleX(0)
+  .link-project
+    &:hover, &:active
+      color: $main-accent-color
+
+@media (prefers-reduced-motion: reduce)
+  *, *::before, *::after
+    animation-duration: 0.01ms !important
+    animation-iteration-count: 1 !important
+    transition-duration: 0.01ms !important
+    scroll-behavior: auto !important
+    transition-delay: 0ms !important
+
+.skill-cards
+  display: flex
+  flex-wrap: wrap
+  gap: 0.4rem
+  span
+    justify-content: center
+    flex-wrap: wrap
+    color: $just-black-color
+    background-color: $main-accent-color
+    display: inline-block
+    padding: 0.4rem 0.8rem
+    font-size: 1.2rem
+    font-weight: 600
+
+// SECTION SKILL SET AND ABOUT
+.skill
+
+  background-size: cover
+  background-position: center
+  min-height: 110vh
+  margin: 0 auto
+  display: grid
+  align-content: center
+
+.subheading.skill-subheading
+  margin-bottom: 9.6rem
+  text-align: center
+
+.skill-grid
+  display: grid
+  justify-items: center
+  column-gap: 24rem
+  row-gap: 12rem
+
+
+.skill-icon
+  filter: invert(2%) sepia(15%) saturate(3297%) hue-rotate(12deg) brightness(91%) contrast(101%)
+  width: 5.4rem
+  height: 5.4rem
+  &:hover
+    transform: scale(1.1)
+    filter: invert(71%) sepia(85%) saturate(1658%) hue-rotate(345deg) brightness(101%) contrast(101%)
+
+.skill-icon-container
+  display: flex
+  gap: 2.4rem
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  span
+    display: inline-block
+    font-size: 1.6rem
+    color: $just-black-color
+    font-weight: 700
+    
+
+.skill, .about
+  padding: 12.8rem
+  position: relative
+  
+
+
+.skill-container, about-container
+  display: grid
+
+.skill-describe, .about-describe, .cta-text
+  font-size: 2rem
+  line-height: 1.8
+  margin-bottom: 2.4rem
+
+
+.ivan-ravic
+  max-width: 100%
+  overflow: hidden
+  border-radius: 0.5rem
+
+.my-picture
+  display: flex
+  align-items: center
+  justify-content: center
+
+.about-icon-title
+  margin-bottom: 0.6rem
+
+.about-icon
+  color: $main-accent-color
+  height: 4.4rem
+  width: 4.4rem
+  background-color: $just-black-color
+  border-radius: 0.5rem
+  padding: 0.5rem
+
+.about-container
+  margin-bottom: 4.4rem
+  &:last-child
+    margin-bottom: 0
+
+
+
+  // CONTACT AND FORM
+
+.section-cta
+  padding: 12.8rem
+
+.arrow-form
+  display: flex
+  justify-content: right
+
+.contact-form-icon
+  margin: 1.6rem 0
+  width: 3.2rem
+  height: 3.2rem
+
+.social-icons
+  display: flex
+  gap: 2.4rem
+  width: 2.4rem
+  height: 2.4rem
+  margin-bottom: 4.4rem
+ 
+.github-icon, .email-icon, .linkedin-icon
+  &:hover
+    filter: invert(71%) sepia(85%) saturate(1658%) hue-rotate(345deg) brightness(101%) contrast(101%)
+    transform: scale(1.1)
+    transition: transform 0.3s ease
+.copy-mail
+  font-size: 1.8rem
+  font-weight: 700
+  border: none
+  cursor: pointer
+  background-color: #fff
+  color: $just-black-color
+  transition: transform 0.3s ease
+  &:hover
+    color: $main-accent-color
+    transform: scale(1.05)
+
+.copy-message
+  display: none
+  font-size: 1.2rem
+  color: $main-accent-color
+  font-weight: 400
+  
+.cta-form
+  display: grid
+  column-gap: 3.2rem
+  row-gap: 2.4rem
+  background-image: linear-gradient(to right bottom, $just-black-color, $main-accent-color)
+  overflow: hidden
+  padding: 4.4rem
+  border-radius: 9px
+  label
+    display: block
+    font-size: 1.6rem
+    font-weight: 500
+    margin-bottom: 1.2rem
+    color: $just-white-color
+    
+  input, textarea
+    resize: none
+    width: 100%
+    padding: 1.2rem
+    font-size: 1.8rem
+    font-family: inherit
+    color: $just-black-color
+    border: none
+    background-color: $just-white-color
+    border-radius: 9px
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1)
+    
+
+.message_button.btn--form
+  background-color: $just-black-color
+  color: $just-white-color
+  width: 50%
+  cursor: pointer
+  transition: all 0.3s
+  &:link, &:visited
+    color:$main-accent-color
+    background-color:  $just-black-color
+  &:active, &:hover
+    background-color:  $just-black-color
+    color:$main-accent-color
+    
+.flash-message
+  color: $just-white-color
+  font-size: 1.8rem
+
+.to-the-top-link
+  display: flex
+  justify-content: center
+
+.to-the-top
+  text-transform: uppercase
+  text-decoration: none
+  display: inline-block
+  font-weight: 700
+  font-size: 1.8rem
+  margin-bottom: 9.6rem
+  transition: transform 0.3s ease
+  &:link, &:visited
+    color:$main-accent-color
+  &:active, &:hover
+    color:$just-black-color
+    transform: scale(1.05)
+
+// FOOTER
+
+.footer
+
+  margin-bottom: 4.8rem
+  display: flex
+  justify-content: center
+  max-width: 120rem
+  margin: 0 auto
+  padding-bottom: 3.2rem
+
+.copyright
+  font-size: 1.4rem
+  color: $just-black-color
+  line-height: 1.6rem
+  
+
+// PROJECT DESCRIBE PAGE
+.header-container.project-page
+  padding: 0rem 4.4rem 4.4rem
+
+.main-nav-link.project-page
+  &:link, &:visited
+    color: $just-black-color
+  &:hover, &:active
+    color: $second-accent-color
+
+.nav-resume.project-page
+  &:link, &:visited
+    color:$main-accent-color
+  &:active, &:hover
+    color:$second-accent-color
+
+.icon-mobile-nav.project-page
+  color: $just-black-color
+
+.heading-container
+  padding: 0 3.2rem
+
+
+.img-project-page-container
+  display: flex
+  justify-content: left
+  .img-project-page
+    width: 50%
+
+.describe-project
+  display: grid
+  row-gap: 2.4rem
+
+.video-project-page
+  width: 100%
+  margin-bottom: 2.4rem

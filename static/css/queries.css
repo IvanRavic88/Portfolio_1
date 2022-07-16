@@ -1,0 +1,214 @@
+/* ************************** */
+/* Below  1408px */
+/* ************************** */
+@media (max-width: 88em) {
+  .hero {
+    grid-template-columns: 1.5fr 1fr;
+  }
+  .skill-grid {
+    column-gap: 20rem;
+  }
+}
+/* ************************** */
+/* Below  1240px */
+/* ************************** */
+@media (max-width: 77.5em) {
+  html {
+    /*  9px/16px */
+    font-size: 56.25%;
+  }
+  .section-hero {
+    padding: 0rem 9.6rem 9.6rem;
+  }
+  .hero {
+    gap: 4.8rem;
+  }
+  .hero-symbols img {
+    max-width: 1.5%;
+  }
+  .grid {
+    column-gap: 4.8rem;
+    row-gap: 6.4rem;
+  }
+  .heading-secondary {
+    font-size: 3.6rem;
+  }
+  .projects {
+    padding: 9.6rem;
+  }
+  .skill, .about {
+    padding: 9.6rem;
+  }
+  .section-cta {
+    padding: 9.6rem;
+  }
+}
+/* ************************** */
+/* Below  1057.6px */
+/* ************************** */
+@media (max-width: 66.1em) {
+  html {
+    font-size: 50%;
+  }
+  .grid--2-cols {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .grid-center {
+    justify-items: center;
+  }
+  .section-hero {
+    background-position: right;
+    padding: 0rem 6.4rem 6.4rem;
+  }
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 0 8rem;
+    gap: 6.4rem;
+  }
+  .hero-text-box {
+    text-align: center;
+  }
+  .skill {
+    padding: 6.4rem;
+  }
+  .skill-grid {
+    column-gap: 16rem;
+  }
+  .projects {
+    padding: 6.4rem;
+  }
+  .project-card {
+    max-width: 65rem;
+  }
+  .my-picture {
+    scale: 0.85;
+  }
+  .arrow-form {
+    grid-row: 2/3;
+    justify-content: center;
+  }
+  .arrow-form-svg {
+    transform-box: fill-box;
+    transform-origin: center;
+    transform: rotate(90deg);
+  }
+  .cta-text-box {
+    display: grid;
+  }
+  .cta-form {
+    margin: 5rem;
+  }
+  .btn-mobile-nav {
+    display: block;
+    z-index: 9999;
+  }
+  .main-nav {
+    background-color: #030200;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    transform: translateX(100%);
+    display: flex;
+    justify-content: center;
+    transition: all 0.5s ease-in;
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+  }
+  .nav-open .main-nav {
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
+    transform: translateX(0);
+  }
+  .nav-open .icon-mobile-nav[name=close-outline] {
+    display: block;
+  }
+  .nav-open .icon-mobile-nav[name=menu-outline] {
+    display: none;
+  }
+  .main-nav-list {
+    justify-content: center;
+    flex-direction: column;
+    gap: 4.8rem;
+  }
+  .main-nav-link:link,
+.main-nav-link:visited {
+    font-size: 3rem;
+  }
+  .main-nav-link.project-page:link, .main-nav-link.project-page:visited {
+    color: #F8F8F8;
+  }
+  .main-nav-link.project-page:hover, .main-nav-link.project-page:active {
+    color: #B8405E;
+  }
+  .nav-resume.project-page:link, .nav-resume.project-page:visited {
+    color: #FFA818;
+  }
+  .nav-resume.project-page:active, .nav-resume.project-page:hover {
+    color: #B8405E;
+  }
+  .nav-open .icon-mobile-nav.project-page[name=close-outline] {
+    color: #F8F8F8;
+    display: block;
+  }
+  .nav-open .icon-mobile-nav.project-page[name=menu-outline] {
+    display: none;
+  }
+}
+/* ************************** */
+/* Below  704px */
+/* ************************** */
+@media (max-width: 44em) {
+  .grid {
+    row-gap: 4.8rem;
+  }
+  .skill-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .arrow-form {
+    justify-content: right;
+  }
+  .cta-form {
+    margin: 0;
+  }
+  .skill, .about, .section-cta, .projects {
+    padding: 4.4rem 9.6rem;
+  }
+  .container-project-page {
+    padding: 4.4rem;
+  }
+}
+/* ************************** */
+/* Below  544px */
+/* ************************** */
+@media (max-width: 34em) {
+  .container {
+    padding: 2.4rem;
+  }
+  .section-hero {
+    padding: 0 2.4rem 2.4rem 2.4rem;
+  }
+  .header-container.project-page {
+    padding: 0 2.4rem 2.4rem;
+  }
+  .skill, .about, .section-cta {
+    padding: 9.6rem 2.4rem;
+  }
+  .projects {
+    padding: 0;
+  }
+  .message_button.btn--form {
+    width: 100%;
+  }
+  .container-project-page {
+    padding: 2.4rem;
+  }
+  .subheading.project-page {
+    font-size: 3.2rem;
+  }
+}

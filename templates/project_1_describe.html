@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Ivan Ravić portfolio website. Website was designed and made by software developer Ivan Ravić"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sen:wght@400;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="../static/css/general.css" />
+    <link rel="stylesheet" href="../static/css/style.css" />
+    <link rel="stylesheet" href="../static/css/queries.css" />
+
+    <link rel="stylesheet" href="" />
+    <title>Ivan Ravić &mdash; Portfolio</title>
+  </head>
+  <body>
+    <main>
+      <section class="header-container project-page" id="home">
+        <header class="header">
+          <nav class="main-nav">
+            <ul class="main-nav-list project-page">
+              <li>
+                <a
+                  class="main-nav-link project-page"
+                  href="{{url_for('home')}}#projects"
+                  >Projects</a
+                >
+              </li>
+              <li>
+                <a
+                  class="main-nav-link project-page"
+                  href="{{url_for('home')}}#contact"
+                  >Contact</a
+                >
+              </li>
+              <li>
+                <a
+                  class="main-nav-link project-page"
+                  href="{{url_for('home')}}#about"
+                  >About</a
+                >
+              </li>
+              <li>
+                <a
+                  target="_blank"
+                  class="main-nav-link project-page nav-resume"
+                  href="{{url_for('resume_pdf')}}"
+                  >Resume</a
+                >
+              </li>
+            </ul>
+          </nav>
+          <button class="btn-mobile-nav">
+            <ion-icon
+              class="icon-mobile-nav project-page"
+              name="menu-outline"
+            ></ion-icon>
+            <ion-icon
+              class="icon-mobile-nav project-page"
+              name="close-outline"
+            ></ion-icon>
+          </button>
+        </header>
+      </section>
+      <div class="container-project-page">
+        <div class="heading-container">
+          <span class="subheading project-page">GaginiSlatkiši.com</span>
+          <h2 class="heading-secondary">
+            GaginiSlatkiši - website for homemade sweets
+          </h2>
+        </div>
+        <div class="about-text grid container grid--1-cols project-page">
+          <div class="about-description">
+            <div class="about-container">
+              <span class="about-describe describe-project"
+                >GaginiSlatkiši is a website, made for a company that makes
+                homemade cakes and other sweets. The idea is that after the
+                launch of the site, the client has the opportunity to add and
+                delete cakes that are on offer on its own.
+              </span>
+            </div>
+          </div>
+          <div class="video-project-page-container">
+            <video
+              controls
+              class="video-project-page"
+              src="../static/img/GaginiSlatkiši.mp4"
+              alt="Video of using website GaginiSlatkisi.com."
+            />
+          </div>
+          <div class="about-description">
+            <p class="heading-tertiary">Project Purpose and Goal</p>
+            <div class="about-container">
+              <span class="about-describe describe-project"
+                >The application was created as a promotion for homemade cakes
+                GaginiSlatkisi. The final product required the creation of a
+                design, development of the front-end and back-end part of the
+                application, as well as deployment on a VPS.
+              </span>
+            </div>
+          </div>
+          <div class="about-description">
+            <p class="heading-tertiary">Web Stack and Explanation</p>
+            <div class="about-container">
+              <span class="about-describe describe-project"
+                >The client requested me to develop the application from
+                scratch. I worked with them to detemine the core features and
+                presented a plan.
+                <p>
+                  Using <strong>Figma</strong>, I created an initial design that
+                  I adjusted as necessary in a conversation with the client.
+                  After the client's confirmation that the design is excellent,
+                  I started developing the front-end part using
+                  <strong>CSS</strong> and <strong>HTML</strong>.
+                </p>
+                <p>
+                  <strong>Flask</strong> was used for the server side, and
+                  <strong>Jinja</strong>
+                  for dynamic page display.
+                  <strong>FlaskForm</strong> was used for the email and login
+                  form. For the client login was used
+                  <strong>flask_login</strong> and for the database
+                  <strong>SQLAlchemy</strong>. <strong>PIL</strong> was used to
+                  resize the image that is uploaded by the client, so that the
+                  cards of each candy have the same dimensions.
+                </p>
+                <p>
+                  After finishing and testing the server part of the
+                  application, it was time to bring the application online. For
+                  this purpose, a virtual environment was created on VPS, using
+                  <strong>Ubuntu 20.4</strong>, <strong>Bash</strong>,
+                  <strong>Gunikorn</strong> and <strong>NGNX</strong>, on which
+                  the website is currently running.
+                </p>
+              </span>
+            </div>
+          </div>
+          <div class="about-description">
+            <p class="heading-tertiary">Problems and Thought Process</p>
+            <div class="about-container">
+              <span class="about-describe describe-project"
+                >The main goal of the project was to make it scalable and
+                flexible enough so that it would support future updates. In
+                order to achieve this, a database was necessary. But the use of
+                that database had to be adapted to the client, and for that
+                purpose a form of the appropriate shape was used, which is
+                visible only to the logged in user.
+                <p>
+                  In this way, it was achieved that the application can be
+                  updated with minimal effort from the client.
+                </p>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="to-the-top-link">
+        <a href="#home" class="to-the-top prevent-default-link"> Back to top</a>
+      </div>
+    </main>
+    <footer class="footer">
+      <p class="copyright">
+        Designed and made by Ivan Ravić&nbsp;&copy;&nbsp;<span class="year"
+          >2021</span
+        >
+      </p>
+    </footer>
+    <script defer src="../static/assets/script.js"></script>
+    <script
+      defer
+      src="https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js"
+    ></script>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>

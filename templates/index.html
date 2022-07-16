@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Ivan Ravić portfolio website. Website was designed and made by software developer Ivan Ravić"
+    />
+    <link rel="icon" href="../static/img/r.svg" />
+
+    <!-- FAVICONS FOR IPHONES AND ANDROID USERS -->
+    <link rel="apple-touch-icon" href="../static/img/apple-touch-icon.svg">
+    <link rel="manifest" href="../manifest.webmanifest">
+    <!-- -------------------------------------------------------------- -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sen:wght@400;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../static/css/general.css" />
+    <link rel="stylesheet" href="../static/css/style.css" />
+    <link rel="stylesheet" href="../static/css/queries.css">
+
+    <link rel="stylesheet" href="" />
+    <title>Ivan Ravić &mdash; Portfolio</title>
+  </head>
+  <body>
+    
+    <section class="section-hero" id="home">
+      <section class="header-container">
+        <header class="header">
+          <nav class="main-nav">
+            <ul class="main-nav-list">
+              <li>
+                <a class="main-nav-link prevent-default-link" class="main-nav-link" href="#projects"
+                  >Projects</a
+                >
+              </li>
+              <li>
+                <a class="main-nav-link prevent-default-link" class="main-nav-link" href="#contact"
+                  >Contact</a
+                >
+              </li>
+              <li><a class="main-nav-link prevent-default-link" href="#about">About</a></li>
+              <li>
+                <a target="_blank" class="main-nav-link nav-resume" href="{{url_for('resume_pdf')}}">Resume</a>
+              </li>
+            </ul>
+          </nav>
+          <button class="btn-mobile-nav">
+            <ion-icon class="icon-mobile-nav" name="menu-outline"></ion-icon>
+            <ion-icon class="icon-mobile-nav" name="close-outline"></ion-icon>
+          </button>
+        </header>
+      </section>
+      <div class="hero">
+        <div class="hero-text-box">
+          <h1 class="hero-title">Software developer</h1>
+          <h2 class="heading-primary">Hello there, i'm Ivan!</h2>
+          <p class="hero-description">
+            I help people find a solution for their applications.
+          </p>
+
+        </div>
+      </div>
+      <div class="hero-symbols">
+
+        <img
+          src="../static/img/svg/hero-symbol-1.svg"
+          alt="Two triangles, pointing downwards."
+          class="hero-symbol"
+        />
+        <img
+          src="../static/img/svg/hero-symbol-1.svg"
+          alt="Two triangles, pointing downwards."
+          class="hero-symbol"
+        />
+      </div>
+    </section>
+    <section class="skill">
+      <div class="container">
+        <span class="subheading skill-subheading">Skills</span>
+          <div class="grid--4-cols skill-grid">
+            <div class="skill-icon-container"><img class="skill-icon" src="../static/img/svg/python.svg" alt="Icon of Python."><span class="icon-text-skill">Python</span></div>
+            <div class="skill-icon-container"><img class="skill-icon" src="../static/img/svg/selenium.svg" alt="Icon of Selenium."><span class="icon-text-skill">Selenium</span></div>
+            <div class="skill-icon-container"><img class="skill-icon" src="../static/img/svg/flask.svg" alt="Icon of Flask."><span class="icon-text-skill">Flask</span></div>
+            <div class="skill-icon-container"><img class="skill-icon" src="../static/img/svg/jinja.svg" alt="Icon of Jinja."><span class="icon-text-skill">Jinja</span></div>
+            <div class="skill-icon-container"><img class="skill-icon" src="../static/img/svg/html.svg" alt="Icon of HTML5."><span class="icon-text-skill">HTML5</span></div>
+            <div class="skill-icon-container"><img class="skill-icon" src="../static/img/svg/css.svg" alt="Icon of CSS3."><span class="icon-text-skill">CSS3</span></div>
+            <div class="skill-icon-container"><img class="skill-icon" src="../static/img/svg/sass.svg" alt="Icon of SASS."><span class="icon-text-skill">SASS</span></div>
+            <div class="skill-icon-container"><img class="skill-icon" src="../static/img/svg/figma-svg.svg" alt="Icon of Figma."><span class="icon-text-skill">Figma</span></div>
+          </div>
+      </div>
+    </section>
+
+    <section class="projects"">
+      <div class="container">
+        <span class="subheading center" id="projects">Work</span>
+        <h2 class="heading-secondary center">
+          Skills will grow. So will this portfolio.
+        </h2>
+        <div class="container grid grid--2-cols margin-bottom-md grid-center">
+
+          <div class="project-card">
+            <div class="card-content">
+            <h2 class="project-header">GaginiSlatkiši.com</h2>
+            <p class="project-describe">GaginiSlatkiši is an application made for a client who makes homemade sweets. Website has a database and the possibility of login by the administrator.</p>
+            <div class="skill-cards">
+              <span>Flask</span><span>Jinja</span><span>SQLAlchemy</span><span>NGINX</span><span>Gunicorn</span>
+            </div>
+            <div class="project-links">
+            <a class="link-project" target="_blank" href="https://github.com/IvanRavic88/GaginiSlatkisi">Github&nbsp;</a><span>|</span>
+            <a class="link-project" target="_blank" href="https://www.gaginislatkisi.com">&nbsp;Live site&nbsp;</a><span>|</span>
+            <a class="link-project"target="_blank" href="{{url_for('gaginislatkisi')}}">&nbsp;Details</a>
+          
+          </div>
+          </div>
+          </div>
+
+
+          <div class="project-card follower-checker">
+            <div class="card-content">
+            <h2 class="project-header">Follower Cheacker</h2>
+            <p class="project-describe">Follower checker is an application that enables the automatic collection and comparison of the list of followers and users who are being followed.</p>
+            <div class="skill-cards">
+              <span>Python</span><span>Selenium</span><span>Tkinter</span><span>Pandas</span><span>Figma</span>
+            </div>
+            <div class="project-links">
+              <a class="link-project"target="_blank" href="https://github.com/IvanRavic88/Follower_checker/tree/main">Github&nbsp;</a><span>|</span>
+              <a class="link-project"target="_blank" href="{{url_for('follower_checker')}}">&nbsp;Details</a>
+          </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" >
+      <div class="container">
+        <span class="subheading" id="about">About</span>
+        <h2 class="heading-secondary">
+          I'm curiosity-driven software developer
+        </h2>
+      </div>
+      <div class="about-text grid container grid--2-cols">
+        <div class="my-picture">
+
+          <picture>
+            <source srcset="../static/img/Ivan.webp" type="image/webp"/>
+            <source srcset="../static/img/Ivan.png" type="image/png"/>
+
+            <img class="ivan-ravic" src="../static/img/Ivan.png" alt="Picture in black and white of Ivan Ravić">
+        </picture>
+
+          
+        </div>
+        <div class="about-description">
+        <div class="about-container">
+          <div class="about-icon-title">
+            <img
+              class="about-icon"
+              src="../static/img/svg/about-svg-1.svg"
+              alt="Icon of tool in green."
+            />
+          </div>
+          <span class="about-describe"
+            >I am capable and dynamic software developer, with experience in
+            front-end and back-end. I graduated as an Engineer of electrical and
+            computer engineering - Master (appl.) on VISER in Belgrade.
+          </span>
+        </div>
+
+        <div class="about-container">
+          <div class="about-icon-title">
+            <img
+              class="about-icon"
+              src="../static/img/svg/about-svg-2.svg"
+              alt="Icon of suitcase in green with clock nearby."
+            />
+          </div>
+          <span class="about-describe"
+            >After im finish B.S. I worked in a mining company, which is why I
+            focused on automatic control systems, primarily PLC programming.
+          </span>
+        </div>
+
+        <div class="about-container">
+          <div class="about-icon-title">
+            <img
+              class="about-icon"
+              src="../static/img/svg/about-svg-3.svg"
+              alt="Icon of suitcase in green with clock nearby."
+            />
+          </div>
+          <span class="about-describe"
+            >After a while I decided to go back to programming completely. For a
+            language that will remind me of everything I learned in school, as
+            well as learn some new tricks, I chose Python. I've started with
+            Python, but I'm definitely not going to stop there.
+          </span>
+        </div>
+      </div>
+    </div>
+    </section>
+    <section class="section-cta" id="contact">
+      <div class="container">
+        <div class="cta grid grid--2-cols">
+          <div class="cta-text-box">
+            <div class="arrow-form">
+              <img
+                class="arrow-form-svg"
+                src="../static/img/svg/arrow-form-svg.svg"
+                alt="Green arrow, pointing to the message form."
+              />
+            </div>
+            <div>
+            <h2 class="subheading">Contact</h2>
+            <img
+              class="contact-form-icon"
+              src="../static/img/svg/contact-form-svg.svg"
+              alt="A green icon, representing friends"
+            />
+            <p class="cta-text">
+              If you have a suggestion, idea or just want to say hello,
+              feel free to contact me.
+            </p>
+            <div class="social-icons">
+              <a class="github-icon"
+                target="_blank"
+                href="https://github.com/IvanRavic88?tab=repositories"
+                ><img src="../static/img/svg/github.svg" alt="Green github icon."
+              /></a>
+              <a class="email-icon" href="mailto:ravic.ivan88@gmail.com"
+                ><img src="../static/img/svg/email.svg" alt="Green icon for mail."
+              /></a>
+              <a class="linkedin-icon"
+                target="_blank"
+                href="https://linkedin.com/in/ivan-ravić-b3aa36143"
+                ><img src="../static/img/svg/linkedin.svg" alt="Green icon for linkedin."
+              /></a>
+             
+            </div>
+            <button class="copy-mail">ravic.ivan88@gmail.com</button>
+            <div class="copy-message">Copied</div>
+          </div>
+        </div>
+        
+          <form class="cta-form" method="POST" name="sign-up" action="{{ url_for('home') }}">
+            {{ message_client_form.csrf_token }}  {% with messages = get_flashed_messages()
+              %} {% if messages %} {% for message in messages %}
+              <p class="flash-message">{{ message }}</p>
+              {% endfor %} {% endif %} {% endwith %}
+            <div>
+             {{ message_client_form.client_name.label }}
+              {{ message_client_form.client_name (placeholder="Your name") }}
+            </div>
+      
+            <div>
+              {{ message_client_form.client_email.label }}
+              {{ message_client_form.client_email (placeholder="name@example.com") }}
+            </div>
+      
+            <div class="cta-message">
+            {{ message_client_form.client_message.label }}
+           <label>
+            {{ message_client_form.client_message(placeholder="Hello there! I like your work. 😉", rows="3") }}
+           </label>
+            <!-- </div> <button class="btn btn--form message_button"><div><img src="../static/img/svg/svg_send.svg" alt="Icon for send button."> </div><div> Send</div></button> -->
+           
+            {{ message_client_form.send(class_="btn btn--form message_button") }}   
+            <!-- <img class="send-svg" src="../static/img/svg/svg_send.svg" alt="Icon for send button.">    -->
+          </form>
+        
+        </div>
+      </div>
+    </section>
+    <div class="to-the-top-link">
+      <a href="#home" class="to-the-top prevent-default-link"> Back to top</a>
+    </div>
+  </main>
+  <footer class="footer">
+    <p class="copyright">Designed and made by Ivan Ravić&nbsp;&copy;&nbsp;<span class="year">2021</span></p>
+  </footer>
+  <script defer src="../static/assets/script.js"></script>
+  <script defer src="https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js"></script>
+
+  <script
+  type="module"
+  src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+></script>
+<script
+  nomodule
+  src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+></script>
+
+  </body>
+</html>
