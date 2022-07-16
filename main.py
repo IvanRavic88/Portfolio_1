@@ -1,16 +1,12 @@
 
-from http.client import responses
-from urllib import response
-from flask import Flask, render_template, request, url_for, redirect, flash, send_from_directory
+from flask import Flask, render_template, url_for, redirect, flash, send_from_directory
 from flask_wtf import FlaskForm
-from flask_wtf.file import FileField
-from wtforms import StringField, SubmitField, TextAreaField, EmailField, PasswordField
+from wtforms import StringField, SubmitField, TextAreaField, EmailField
 from wtforms.validators import DataRequired, InputRequired
 import os
-from dotenv import load_dotenv, find_dotenv
 import smtplib
 
-import time
+
 
 app = Flask(__name__)
 
