@@ -10,7 +10,7 @@ import smtplib
 
 app = Flask(__name__)
 
-app.config['SECRET_KEY'] = "my_secret_key"
+app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
 EMAIL_IVAN_RAVIC = "ravic.ivan88@gmail.com"
 app.config['DEBUG'] = True
 app.config['TESTING'] = False
