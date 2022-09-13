@@ -1,4 +1,3 @@
-
 from flask import Flask, render_template, url_for, redirect, flash, send_from_directory
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, TextAreaField, EmailField
@@ -56,6 +55,10 @@ def gaginislatkisi():
 @app.route("/follower_checker", methods=["POST", "GET"])
 def follower_checker():
   return render_template("project_2_describe.html")
+
+@app.route("/e-commerce", methods=["POST", "GET"])
+def e_commerce():
+  return render_template("e-commerce_project.html")
 
 @app.route("/resume_pdf")
 def resume_pdf():

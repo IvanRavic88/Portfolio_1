@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Ivan Ravić portfolio website. Website was designed and made by software developer Ivan Ravić"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sen:wght@400;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="../static/css/general.css" />
+    <link rel="stylesheet" href="../static/css/style.css" />
+    <link rel="stylesheet" href="../static/css/queries.css" />
+
+    <link rel="stylesheet" href="" />
+    <title>Ivan Ravić &mdash; Portfolio</title>
+  </head>
+  <body>
+    <main>
+      <section class="header-container project-page" id="home">
+        <header class="header">
+          <nav class="main-nav">
+            <ul class="main-nav-list project-page">
+              <li>
+                <a
+                  class="main-nav-link project-page"
+                  href="{{url_for('home')}}#projects"
+                  >Projects</a
+                >
+              </li>
+              <li>
+                <a
+                  class="main-nav-link project-page"
+                  href="{{url_for('home')}}#contact"
+                  >Contact</a
+                >
+              </li>
+              <li>
+                <a
+                  class="main-nav-link project-page"
+                  href="{{url_for('home')}}#about"
+                  >About</a
+                >
+              </li>
+              <li>
+                <a
+                  target="_blank"
+                  class="main-nav-link project-page nav-resume"
+                  href="{{url_for('resume_pdf')}}"
+                  >Resume</a
+                >
+              </li>
+            </ul>
+          </nav>
+          <button class="btn-mobile-nav">
+            <ion-icon
+              class="icon-mobile-nav project-page"
+              name="menu-outline"
+            ></ion-icon>
+            <ion-icon
+              class="icon-mobile-nav project-page"
+              name="close-outline"
+            ></ion-icon>
+          </button>
+        </header>
+      </section>
+      <div class="container-project-page">
+        <div class="heading-container">
+          <span class="subheading project-page">My Store</span>
+          <h2 class="heading-secondary">
+            My Store is a e-commerce website, built with RectJS and NextJS.
+          </h2>
+        </div>
+        <div class="about-text grid container grid--1-cols project-page">
+          <div class="about-description">
+            <div class="about-container">
+              <span class="about-describe describe-project">
+                My Store is e-commerce website for selling clothes. It was
+                created as an online store for selling clothes, but it is very
+                easily adaptable for other products as well.
+              </span>
+            </div>
+          </div>
+          <div class="video-project-page-container">
+            <video
+              controls
+              class="video-project-page"
+              src="../static/img/My_Store.mp4"
+              alt="Video of using website My Store"
+            />
+          </div>
+          <div class="about-description">
+            <p class="heading-tertiary">Project Purpose and Goal</p>
+            <div class="about-container">
+              <span class="about-describe describe-project"
+                >The goal of this project is the creation of a modern e-commerce
+                site, which is easily adaptable and ready for use with minor
+                changes. The final product required development of the front-end
+                and back-end part of the application, as well as deployment on a
+                Vercel.
+              </span>
+            </div>
+          </div>
+          <div class="about-description">
+            <p class="heading-tertiary">Web Stack and Explanation</p>
+            <div class="about-container">
+              <span class="about-describe describe-project"
+                >For product data storage (name, image, description, price...)
+                Sanity was used. In this way, great flexibility of the site and
+                easy use as well as update was achieved.
+                <p>
+                  <strong>Figma</strong> was used for the design part. The
+                  modern look is achieved by combining standard
+                  <strong>CSS</strong> and <strong>Material UI</strong>.
+                </p>
+                <p>
+                  <strong>NextJS</strong> was used for the server side, while
+                  <strong>ReactJS</strong> is used for the front-end. Since this
+                  project was conceived as a ready-to-use website,
+                  <strong>Stripe</strong> was used for the product payment in
+                  test mode.
+                </p>
+                <p>
+                  After finishing and testing the front-end and back-end of the
+                  application, it was time to bring the application online.
+                  Vercel was used for this purpose, as the best solution.
+                </p>
+              </span>
+            </div>
+          </div>
+          <div class="about-description">
+            <p class="heading-tertiary">Problems and Thought Process</p>
+            <div class="about-container">
+              <span class="about-describe describe-project"
+                >The main goal of the project was to make it scalable and
+                flexible enough so that it would support future updates and
+                changes.
+                <p>
+                  Application made in this way enables easy adaptation to a wide
+                  range of different products, as well as simple use of the
+                  application by the client.
+                </p>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="to-the-top-link">
+        <a href="#home" class="to-the-top prevent-default-link"> Back to top</a>
+      </div>
+    </main>
+    <footer class="footer">
+      <p class="copyright">
+        Designed and made by Ivan Ravić&nbsp;&copy;&nbsp;<span class="year"
+          >2022</span
+        >
+      </p>
+    </footer>
+    <script defer src="../static/assets/script.js"></script>
+    <script
+      defer
+      src="https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js"
+    ></script>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>
