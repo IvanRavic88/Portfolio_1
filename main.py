@@ -64,6 +64,10 @@ def follower_checker():
 def e_commerce():
   return render_template("e-commerce_project.html")
 
+@app.route("/chat-app", methods=["POST", "GET"])
+def chat_app():
+  return render_template("chat-app.html")
+
 @app.route("/resume_pdf")
 def resume_pdf():
   return send_from_directory(".", "Ivan's Resume.pdf")

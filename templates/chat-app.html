@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Ivan Ravić portfolio website. Website was designed and made by software developer Ivan Ravić"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sen:wght@400;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="../static/css/general.css" />
+    <link rel="stylesheet" href="../static/css/style.css" />
+    <link rel="stylesheet" href="../static/css/queries.css" />
+
+    <link rel="stylesheet" href="" />
+    <title>Ivan Ravić &mdash; Portfolio</title>
+  </head>
+  <body>
+    <main>
+      <section class="header-container project-page" id="home">
+        <header class="header">
+          <nav class="main-nav">
+            <ul class="main-nav-list project-page">
+              <li>
+                <a
+                  class="main-nav-link project-page"
+                  href="{{url_for('home')}}#projects"
+                  >Projects</a
+                >
+              </li>
+              <li>
+                <a
+                  class="main-nav-link project-page"
+                  href="{{url_for('home')}}#contact"
+                  >Contact</a
+                >
+              </li>
+              <li>
+                <a
+                  class="main-nav-link project-page"
+                  href="{{url_for('home')}}#about"
+                  >About</a
+                >
+              </li>
+              <li>
+                <a
+                  target="_blank"
+                  class="main-nav-link project-page nav-resume"
+                  href="{{url_for('resume_pdf')}}"
+                  >Resume</a
+                >
+              </li>
+            </ul>
+          </nav>
+          <button class="btn-mobile-nav">
+            <ion-icon
+              class="icon-mobile-nav project-page"
+              name="menu-outline"
+            ></ion-icon>
+            <ion-icon
+              class="icon-mobile-nav project-page"
+              name="close-outline"
+            ></ion-icon>
+          </button>
+        </header>
+      </section>
+      <div class="container-project-page">
+        <div class="heading-container">
+          <span class="subheading project-page">Chat-App</span>
+          <h2 class="heading-secondary">
+            Chat-App is a small project application, built with RectJS, NextJS,
+            Mui and Tailwind.
+          </h2>
+        </div>
+        <div class="about-text grid container grid--1-cols project-page">
+          <div class="about-description">
+            <div class="about-container">
+              <span class="about-describe describe-project">
+                Chat-app is an easily customizable application, both in terms of
+                purpose and appearance.
+              </span>
+            </div>
+          </div>
+          <div class="video-project-page-container">
+            <video
+              controls
+              class="video-project-page"
+              src="../static/img/CHAT_APP.mp4"
+              alt="Video of using website My Store"
+            />
+          </div>
+          <div class="about-description">
+            <p class="heading-tertiary">Project Purpose and Goal</p>
+            <div class="about-container">
+              <span class="about-describe describe-project"
+                >The goal of the project is an application that will enable
+                communication and ease of use for users. The final product
+                required development of the front-end and back-end part of the
+                application, as well as deployment on a Vercel.
+              </span>
+            </div>
+          </div>
+          <div class="about-description">
+            <p class="heading-tertiary">Web Stack and Explanation</p>
+            <div class="about-container">
+              <span class="about-describe describe-project"
+                >Firebase is used for login and data storage. In this way, safer
+                and simpler storage of user information is enabled.
+                <p>
+                  <strong>Figma</strong> was used for the design part. The
+                  modern look is achieved by combining
+                  <strong>Tailwind</strong> and <strong>Material UI</strong>.
+                </p>
+                <p>
+                  <strong>NextJS</strong> was used for the server side, while
+                  <strong>ReactJS</strong> is used for the front-end. For
+                  sharing the necessary data between components at the
+                  application level, it is used <strong>Context</strong>>
+                </p>
+                <p>
+                  After finishing and testing the front-end and back-end of the
+                  application, it was time to bring the application online.
+                  Vercel was used for this purpose, as the best solution.
+                </p>
+              </span>
+            </div>
+          </div>
+          <div class="about-description">
+            <p class="heading-tertiary">Problems and Thought Process</p>
+            <div class="about-container">
+              <span class="about-describe describe-project"
+                >The main goal of the project was to make it scalable and
+                flexible enough so that it would support future updates and
+                changes. The application is mobile friendly, and it is very
+                adaptable.
+                <p>
+                  The biggest problem during the development of the application
+                  was caused by an error during import the MUI library. The
+                  entire library was imported, instead of the required element.
+                  In this way, the compilation itself took too long and the
+                  operation of the application was significantly slowed down.
+                  After debugging, the error was corrected and the speed of the
+                  application returned to normal.
+                </p>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="to-the-top-link">
+        <a href="#home" class="to-the-top prevent-default-link"> Back to top</a>
+      </div>
+    </main>
+    <footer class="footer">
+      <p class="copyright">
+        Designed and made by Ivan Ravić&nbsp;&copy;&nbsp;<span class="year"
+          >2022</span
+        >
+      </p>
+    </footer>
+    <script defer src="../static/assets/script.js"></script>
+    <script
+      defer
+      src="https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js"
+    ></script>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>
