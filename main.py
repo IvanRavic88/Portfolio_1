@@ -72,7 +72,5 @@ def chat_app():
 def resume_pdf():
   return send_from_directory(".", "Ivan's Resume.pdf")
   
-
-
 if __name__ == "__main__":
   app.run(debug=True)

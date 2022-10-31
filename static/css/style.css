@@ -1,7 +1,8 @@
-.main-nav-link:link, .main-nav-link:visited {
+.main-nav-link:link,
+.main-nav-link:visited {
   display: inline-block;
   text-decoration: none;
-  color: #F8F8F8;
+  color: #f8f8f8;
   font-weight: 500;
   font-size: 1.8rem;
   transition: all 0.3s;
@@ -25,15 +26,18 @@
   align-items: center;
 }
 
-.main-nav-link:hover, .main-nav-link:active {
-  color: #B8405E;
+.main-nav-link:hover,
+.main-nav-link:active {
+  color: #b8405e;
 }
 
-.nav-resume:link, .nav-resume:visited {
-  color: #FFA818;
+.nav-resume:link,
+.nav-resume:visited {
+  color: #ffa818;
 }
-.nav-resume:active, .nav-resume:hover {
-  color: #B8405E;
+.nav-resume:active,
+.nav-resume:hover {
+  color: #b8405e;
 }
 
 .btn-mobile-nav {
@@ -46,10 +50,10 @@
 .icon-mobile-nav {
   height: 4.8rem;
   width: 4.8rem;
-  color: #F8F8F8;
+  color: #f8f8f8;
 }
 
-.icon-mobile-nav[name=close-outline] {
+.icon-mobile-nav[name="close-outline"] {
   display: none;
 }
 
@@ -75,12 +79,12 @@
   font-size: 4rem;
   line-height: 1.6;
   margin-bottom: 4.8rem;
-  color: #F8F8F8;
+  color: #f8f8f8;
 }
 
 .hero-title {
   font-size: 2.4rem;
-  color: #B8405E;
+  color: #b8405e;
   padding-bottom: 2rem;
   margin-top: 7rem;
 }
@@ -122,18 +126,19 @@
 
 .project-card {
   display: grid;
-  color: #F8F8F8;
+  color: #f8f8f8;
   background-image: url("../img/gagini_slatkisi.png");
   background-size: cover;
   background-position: center;
   box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.5);
-  border: 2px solid #FFA818;
+  border: 2px solid #ffa818;
   max-width: 50rem;
   border-radius: 0.5rem;
   overflow: hidden;
   transition: transform 500ms ease;
 }
-.project-card:hover, .project-card:focus-within {
+.project-card:hover,
+.project-card:focus-within {
   transform: scale(1.05);
 }
 
@@ -143,6 +148,10 @@
 
 .e-commerce {
   background-image: url("../img/e-commerce.png");
+}
+
+.chat-app {
+  background-image: url("../img/image-for-chat-app.png");
 }
 
 .card-content {
@@ -171,7 +180,7 @@
   text-transform: uppercase;
   font-weight: 700;
   font-size: 1.8rem;
-  color: #FFA818;
+  color: #ffa818;
 }
 
 .project-header::after {
@@ -181,7 +190,7 @@
   bottom: 0;
   height: 3px;
   width: calc(100% + 1.5rem);
-  background: #B8405E;
+  background: #b8405e;
   transform-origin: left;
   transition: transform 500ms ease;
 }
@@ -198,19 +207,21 @@
 .project-links span {
   font-size: 1.8rem;
   font-weight: 700;
-  color: #FFA818;
+  color: #ffa818;
 }
 
-.link-project:link, .link-project:visited {
+.link-project:link,
+.link-project:visited {
   display: inline-block;
-  color: #F8F8F8;
+  color: #f8f8f8;
   text-decoration: none;
   font-size: 1.8rem;
   margin-top: 2rem;
   transition: all 0.3s;
 }
-.link-project:hover, .link-project:active {
-  color: #FFA818;
+.link-project:hover,
+.link-project:active {
+  color: #ffa818;
 }
 
 .project-describe {
@@ -224,7 +235,7 @@
     transition: transform 1000ms ease;
   }
   .project-card:hover .card-content,
-.project-card:focus-within .card-content {
+  .project-card:focus-within .card-content {
     transform: translateY(0);
     transition-delay: 500ms;
   }
@@ -238,12 +249,15 @@
   .project-header::after {
     transform: scaleX(0);
   }
-  .link-project:hover, .link-project:active {
-    color: #FFA818;
+  .link-project:hover,
+  .link-project:active {
+    color: #ffa818;
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
@@ -260,7 +274,7 @@
   justify-content: center;
   flex-wrap: wrap;
   color: #030200;
-  background-color: #FFA818;
+  background-color: #ffa818;
   display: inline-block;
   padding: 0.4rem 0.8rem;
   font-size: 1.2rem;
@@ -289,13 +303,15 @@
 }
 
 .skill-icon {
-  filter: invert(2%) sepia(15%) saturate(3297%) hue-rotate(12deg) brightness(91%) contrast(101%);
+  filter: invert(2%) sepia(15%) saturate(3297%) hue-rotate(12deg)
+    brightness(91%) contrast(101%);
   width: 5.4rem;
   height: 5.4rem;
 }
 .skill-icon:hover {
   transform: scale(1.1);
-  filter: invert(71%) sepia(85%) saturate(1658%) hue-rotate(345deg) brightness(101%) contrast(101%);
+  filter: invert(71%) sepia(85%) saturate(1658%) hue-rotate(345deg)
+    brightness(101%) contrast(101%);
 }
 
 .skill-icon-container {
@@ -312,16 +328,20 @@
   font-weight: 700;
 }
 
-.skill, .about {
+.skill,
+.about {
   padding: 12.8rem;
   position: relative;
 }
 
-.skill-container, about-container {
+.skill-container,
+about-container {
   display: grid;
 }
 
-.skill-describe, .about-describe, .cta-text {
+.skill-describe,
+.about-describe,
+.cta-text {
   font-size: 2rem;
   line-height: 1.8;
   margin-bottom: 2.4rem;
@@ -344,7 +364,7 @@
 }
 
 .about-icon {
-  color: #FFA818;
+  color: #ffa818;
   height: 4.4rem;
   width: 4.4rem;
   background-color: #030200;
@@ -382,8 +402,11 @@
   margin-bottom: 4.4rem;
 }
 
-.github-icon:hover, .email-icon:hover, .linkedin-icon:hover {
-  filter: invert(71%) sepia(85%) saturate(1658%) hue-rotate(345deg) brightness(101%) contrast(101%);
+.github-icon:hover,
+.email-icon:hover,
+.linkedin-icon:hover {
+  filter: invert(71%) sepia(85%) saturate(1658%) hue-rotate(345deg)
+    brightness(101%) contrast(101%);
   transform: scale(1.1);
   transition: transform 0.3s ease;
 }
@@ -398,14 +421,14 @@
   transition: transform 0.3s ease;
 }
 .copy-mail:hover {
-  color: #FFA818;
+  color: #ffa818;
   transform: scale(1.05);
 }
 
 .copy-message {
   display: none;
   font-size: 1.2rem;
-  color: #FFA818;
+  color: #ffa818;
   font-weight: 400;
 }
 
@@ -413,7 +436,7 @@
   display: grid;
   column-gap: 3.2rem;
   row-gap: 2.4rem;
-  background-image: linear-gradient(to right bottom, #030200, #FFA818);
+  background-image: linear-gradient(to right bottom, #030200, #ffa818);
   overflow: hidden;
   padding: 4.4rem;
   border-radius: 9px;
@@ -423,9 +446,10 @@
   font-size: 1.6rem;
   font-weight: 500;
   margin-bottom: 1.2rem;
-  color: #F8F8F8;
+  color: #f8f8f8;
 }
-.cta-form input, .cta-form textarea {
+.cta-form input,
+.cta-form textarea {
   resize: none;
   width: 100%;
   padding: 1.2rem;
@@ -433,29 +457,31 @@
   font-family: inherit;
   color: #030200;
   border: none;
-  background-color: #F8F8F8;
+  background-color: #f8f8f8;
   border-radius: 9px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .message_button.btn--form {
   background-color: #030200;
-  color: #F8F8F8;
+  color: #f8f8f8;
   width: 50%;
   cursor: pointer;
   transition: all 0.3s;
 }
-.message_button.btn--form:link, .message_button.btn--form:visited {
-  color: #FFA818;
+.message_button.btn--form:link,
+.message_button.btn--form:visited {
+  color: #ffa818;
   background-color: #030200;
 }
-.message_button.btn--form:active, .message_button.btn--form:hover {
+.message_button.btn--form:active,
+.message_button.btn--form:hover {
   background-color: #030200;
-  color: #FFA818;
+  color: #ffa818;
 }
 
 .flash-message {
-  color: #F8F8F8;
+  color: #f8f8f8;
   font-size: 1.8rem;
 }
 
@@ -473,10 +499,12 @@
   margin-bottom: 9.6rem;
   transition: transform 0.3s ease;
 }
-.to-the-top:link, .to-the-top:visited {
-  color: #FFA818;
+.to-the-top:link,
+.to-the-top:visited {
+  color: #ffa818;
 }
-.to-the-top:active, .to-the-top:hover {
+.to-the-top:active,
+.to-the-top:hover {
   color: #030200;
   transform: scale(1.05);
 }
@@ -500,18 +528,22 @@
   padding: 0rem 4.4rem 4.4rem;
 }
 
-.main-nav-link.project-page:link, .main-nav-link.project-page:visited {
+.main-nav-link.project-page:link,
+.main-nav-link.project-page:visited {
   color: #030200;
 }
-.main-nav-link.project-page:hover, .main-nav-link.project-page:active {
-  color: #B8405E;
+.main-nav-link.project-page:hover,
+.main-nav-link.project-page:active {
+  color: #b8405e;
 }
 
-.nav-resume.project-page:link, .nav-resume.project-page:visited {
-  color: #FFA818;
+.nav-resume.project-page:link,
+.nav-resume.project-page:visited {
+  color: #ffa818;
 }
-.nav-resume.project-page:active, .nav-resume.project-page:hover {
-  color: #B8405E;
+.nav-resume.project-page:active,
+.nav-resume.project-page:hover {
+  color: #b8405e;
 }
 
 .icon-mobile-nav.project-page {
