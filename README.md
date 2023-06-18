@@ -6,5 +6,5 @@ Technologies used:
 •	Design: Figma
 •	Frontend: HTML, CSS and SASS, littlebit JavaScript
 •	Backend: Flask
-•	Deploying Web Application: VPS, Ubuntu 20.4, Nginx, Gunicorn
+•	Deploying Web Application: EC2 (AWS), Ubuntu, Nginx, Gunicorn
 
