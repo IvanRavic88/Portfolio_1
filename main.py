@@ -2,18 +2,26 @@ from flask import Flask, render_template, url_for, redirect, flash, send_from_di
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, TextAreaField, EmailField
 from wtforms.validators import DataRequired, InputRequired
+from flask_wtf.csrf import CSRFProtect
 import os
 import smtplib
+from dotenv import load_dotenv
 
 
 import logging
+
+# load environment variables from .env file
+load_dotenv()
 
 app = Flask(__name__)
 handler = logging.FileHandler('./app.log')  # errors logged to this file
 handler.setLevel(logging.ERROR)  # only log errors and above
 app.logger.addHandler(handler)  # attach the handler to the app's logger
 
+
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
+csrf = CSRFProtect(app)
+
 EMAIL_IVAN_RAVIC = "ravic.ivan88@gmail.com"
 app.config['DEBUG'] = True
 app.config['TESTING'] = False
