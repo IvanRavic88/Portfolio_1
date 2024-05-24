@@ -15,10 +15,19 @@
       href="https://fonts.googleapis.com/css2?family=Sen:wght@400;700;800&display=swap"
       rel="stylesheet"
     />
-
-    <link rel="stylesheet" href="../static/css/general.css" />
-    <link rel="stylesheet" href="../static/css/style.css" />
-    <link rel="stylesheet" href="../static/css/queries.css" />
+    <link rel="icon" href="{{url_for('static',filename='img/r.svg')}}" />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename='css/general.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename='css/style.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename='css/queries.css')}}"
+    />
 
     <link rel="stylesheet" href="" />
     <title>Ivan Ravić &mdash; Portfolio</title>
@@ -93,9 +102,9 @@
             <video
               controls
               class="video-project-page"
-              src="../static/img/My_Store.mp4"
+              src="{{url_for('static', filename='img/My_Store.mp4')}}"
               alt="Video of using website My Store"
-            />
+            >
           </div>
           <div class="about-description">
             <p class="heading-tertiary">Project Purpose and Goal</p>
@@ -164,7 +173,7 @@
         >
       </p>
     </footer>
-    <script defer src="../static/assets/script.js"></script>
+    <script defer src="{{url_for('static', filename='assets/script.js')}}"></script>
     <script
       defer
       src="https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js"

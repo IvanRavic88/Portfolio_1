@@ -8,7 +8,7 @@
       name="description"
       content="Ivan Ravić portfolio website. Website was designed and made by software developer Ivan Ravić"
     />
-
+    <link rel="icon" href="{{url_for('static',filename='img/r.svg')}}" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -16,11 +16,20 @@
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="../static/css/general.css" />
-    <link rel="stylesheet" href="../static/css/style.css" />
-    <link rel="stylesheet" href="../static/css/queries.css" />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename='css/general.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename='css/style.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename='css/queries.css')}}"
+    />
 
-    <link rel="stylesheet" href="" />
+    
     <title>Ivan Ravić &mdash; Portfolio</title>
   </head>
   <body>
@@ -93,9 +102,9 @@
             <video
               controls
               class="video-project-page"
-              src="../static/img/Follower_checker.mp4"
+              src="{{url_for('static', filename='img/Follower_checker.mp4')}}"
               alt="Video of using Follower checker"
-            />
+            >
           </div>
           <div class="about-description">
             <p class="heading-tertiary">Project Purpose and Goal</p>
@@ -156,7 +165,7 @@
         >
       </p>
     </footer>
-    <script defer src="../static/assets/script.js"></script>
+    <script defer src="{{url_for('static', filename='assets/script.js')}}"></script>
     <script
       defer
       src="https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js"

@@ -8,10 +8,10 @@
       name="description"
       content="Ivan Ravić portfolio website. Website was designed and made by software developer Ivan Ravić"
     />
-    <link rel="icon" href="../static/img/r.svg" />
+    <link rel="icon" href="{{url_for('static',filename='img/r.svg')}}" />
 
     <!-- FAVICONS FOR IPHONES AND ANDROID USERS -->
-    <link rel="apple-touch-icon" href="../static/img/apple-touch-icon.svg">
+    <link rel="apple-touch-icon" href="{{url_for('static',filename='img/apple-touch-icon.svg')}}">
     <link rel="manifest" href="../manifest.webmanifest">
     <!-- -------------------------------------------------------------- -->
 
@@ -19,9 +19,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sen:wght@400;700;800&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="../static/css/general.css" />
-    <link rel="stylesheet" href="../static/css/style.css" />
-    <link rel="stylesheet" href="../static/css/queries.css">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/general.css')}}" />
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}"/>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/queries.css')}}">
 
     <link rel="stylesheet" href="" />
     <title>Ivan Ravić &mdash; Portfolio</title>
@@ -68,12 +68,12 @@
       <div class="hero-symbols">
 
         <img
-          src="../static/img/svg/hero-symbol-1.svg"
+          src="{{url_for('static',filename='/img/svg/hero-symbol-1.svg')}}"
           alt="Two triangles, pointing downwards."
           class="hero-symbol"
         />
         <img
-          src="../static/img/svg/hero-symbol-1.svg"
+          src="{{url_for('static',filename='/img/svg/hero-symbol-1.svg')}}"
           alt="Two triangles, pointing downwards."
           class="hero-symbol"
         />
@@ -83,23 +83,23 @@
       <div class="container">
         <span class="subheading skill-subheading">Skills</span>
           <div class="grid--4-cols skill-grid">
-            <div class="skill-icon-container"><img class="skill-icon" src="../static/img/svg/python.svg" alt="Icon of Python."><span class="icon-text-skill">Python</span></div>
-            <div class="skill-icon-container"><img class="skill-icon" src="../static/img/svg/selenium.svg" alt="Icon of Selenium."><span class="icon-text-skill">Selenium</span></div>
-            <div class="skill-icon-container"><img class="skill-icon" src="../static/img/svg/flask.svg" alt="Icon of Flask."><span class="icon-text-skill">Flask</span></div>
-            <div class="skill-icon-container"><img class="skill-icon" src="../static/img/svg/jinja.svg" alt="Icon of Jinja."><span class="icon-text-skill">Jinja</span></div>
-            <div class="skill-icon-container"><img class="skill-icon" src="../static/img/svg/html.svg" alt="Icon of HTML5."><span class="icon-text-skill">HTML5</span></div>
-            <div class="skill-icon-container"><img class="skill-icon" src="../static/img/svg/css.svg" alt="Icon of CSS3."><span class="icon-text-skill">CSS3</span></div>
-            <div class="skill-icon-container"><img class="skill-icon" src="../static/img/svg/sass.svg" alt="Icon of SASS."><span class="icon-text-skill">SASS</span></div>
-            <div class="skill-icon-container"><img class="skill-icon" src="../static/img/svg/figma-svg.svg" alt="Icon of Figma."><span class="icon-text-skill">Figma</span></div>
-            <div class="skill-icon-container"><img class="skill-icon" src="../static/img/svg/reactjs.svg" alt="Icon of Figma."><span class="icon-text-skill">React</span></div>
-            <div class="skill-icon-container"><img class="skill-icon" src="../static/img/svg/material-ui.svg" alt="Icon of Figma."><span class="icon-text-skill">Material UI</span></div>
-            <div class="skill-icon-container"><img class="skill-icon" src="../static/img/svg/mongodb.svg" alt="Icon of Figma."><span class="icon-text-skill">MongoDB</span></div>
-            <div class="skill-icon-container"><img class="skill-icon" src="../static/img/svg/nextjs.svg" alt="Icon of Figma."><span class="icon-text-skill">NextJs</span></div>
+            <div class="skill-icon-container"><img class="skill-icon" src="{{url_for('static',filename='/img/svg/python.svg')}}" alt="Icon of Python."><span class="icon-text-skill">Python</span></div>
+            <div class="skill-icon-container"><img class="skill-icon" src="{{url_for('static',filename='/img/svg/selenium.svg')}}" alt="Icon of Selenium."><span class="icon-text-skill">Selenium</span></div>
+            <div class="skill-icon-container"><img class="skill-icon" src="{{url_for('static',filename='/img/svg/flask.svg')}}" alt="Icon of Flask."><span class="icon-text-skill">Flask</span></div>
+            <div class="skill-icon-container"><img class="skill-icon" src="{{url_for('static',filename='/img/svg/jinja.svg')}}" alt="Icon of Jinja."><span class="icon-text-skill">Jinja</span></div>
+            <div class="skill-icon-container"><img class="skill-icon" src="{{url_for('static',filename='/img/svg/html.svg')}}" alt="Icon of HTML5."><span class="icon-text-skill">HTML5</span></div>
+            <div class="skill-icon-container"><img class="skill-icon" src="{{url_for('static',filename='/img/svg/css.svg')}}"alt="Icon of CSS3."><span class="icon-text-skill">CSS3</span></div>
+            <div class="skill-icon-container"><img class="skill-icon" src="{{url_for('static',filename='/img/svg/sass.svg')}}" alt="Icon of SASS."><span class="icon-text-skill">SASS</span></div>
+            <div class="skill-icon-container"><img class="skill-icon" src="{{url_for('static',filename='/img/svg/figma-svg.svg')}}"alt="Icon of Figma."><span class="icon-text-skill">Figma</span></div>
+            <div class="skill-icon-container"><img class="skill-icon" src="{{url_for('static',filename='/img/svg/reactjs.svg')}}" alt="Icon of React"><span class="icon-text-skill">React</span></div>
+            <div class="skill-icon-container"><img class="skill-icon" src="{{url_for('static',filename='/img/svg/material-ui.svg')}}" alt="Icon of Material-ui."><span class="icon-text-skill">Material UI</span></div>
+            <div class="skill-icon-container"><img class="skill-icon" src="{{url_for('static',filename='/img/svg/mongodb.svg')}}" alt="Icon of MongoDB."><span class="icon-text-skill">MongoDB</span></div>
+            <div class="skill-icon-container"><img class="skill-icon" src="{{url_for('static',filename='/img/svg/nextjs.svg')}}" alt="Icon of NextJS."><span class="icon-text-skill">NextJs</span></div>
           </div>
       </div>
     </section>
 
-    <section class="projects"">
+    <section class="projects">
       <div class="container">
         <span class="subheading center" id="projects">Work</span>
         <h2 class="heading-secondary center">
@@ -188,10 +188,10 @@
         <div class="my-picture">
 
           <picture>
-            <source srcset="../static/img/Ivan.webp" type="image/webp"/>
-            <source srcset="../static/img/Ivan.png" type="image/png"/>
+            <source srcset="{{url_for('static', filename='img/Ivan.webp')}}" type="image/webp"/>
+            <source srcset="{{url_for('static', filename='img/Ivan.png')}}" type="image/png"/>
 
-            <img class="ivan-ravic" src="../static/img/Ivan.png" alt="Picture in black and white of Ivan Ravić">
+            <img class="ivan-ravic" src="{{url_for('static', filename='img/Ivan.png')}}" alt="Picture in black and white of Ivan Ravić">
         </picture>
 
           
@@ -201,7 +201,7 @@
           <div class="about-icon-title">
             <img
               class="about-icon"
-              src="../static/img/svg/about-svg-1.svg"
+              src="{{url_for('static',filename='/img/svg/about-svg-1.svg')}}"
               alt="Icon of tool in green."
             />
           </div>
@@ -216,7 +216,7 @@
           <div class="about-icon-title">
             <img
               class="about-icon"
-              src="../static/img/svg/about-svg-2.svg"
+              src="{{url_for('static',filename='/img/svg/about-svg-2.svg')}}"
               alt="Icon of suitcase in green with clock nearby."
             />
           </div>
@@ -230,7 +230,7 @@
           <div class="about-icon-title">
             <img
               class="about-icon"
-              src="../static/img/svg/about-svg-3.svg"
+              src="{{url_for('static',filename='/img/svg/about-svg-3.svg')}}"
               alt="Icon of suitcase in green with clock nearby."
             />
           </div>
@@ -251,7 +251,7 @@
             <div class="arrow-form">
               <img
                 class="arrow-form-svg"
-                src="../static/img/svg/arrow-form-svg.svg"
+                src="{{url_for('static',filename='/img/svg/arrow-form-svg.svg')}}"
                 alt="Green arrow, pointing to the message form."
               />
             </div>
@@ -259,7 +259,7 @@
             <h2 class="subheading">Contact</h2>
             <img
               class="contact-form-icon"
-              src="../static/img/svg/contact-form-svg.svg"
+              src="{{url_for('static',filename='/img/svg/contact-form-svg.svg')}}"
               alt="A green icon, representing friends"
             />
             <p class="cta-text">
@@ -270,15 +270,15 @@
               <a class="github-icon"
                 target="_blank"
                 href="https://github.com/IvanRavic88?tab=repositories"
-                ><img src="../static/img/svg/github.svg" alt="Green github icon."
+                ><img src="{{url_for('static',filename='/img/svg/github.svg')}}" alt="Green github icon."
               /></a>
               <a class="email-icon" href="mailto:ravic.ivan88@gmail.com"
-                ><img src="../static/img/svg/email.svg" alt="Green icon for mail."
+                ><img src="{{url_for('static',filename='/img/svg/email.svg')}}" alt="Green icon for mail."
               /></a>
               <a class="linkedin-icon"
                 target="_blank"
                 href="https://linkedin.com/in/ivan-ravić-b3aa36143"
-                ><img src="../static/img/svg/linkedin.svg" alt="Green icon for linkedin."
+                ><img src="{{url_for('static',filename='/img/svg/linkedin.svg')}}" alt="Green icon for linkedin."
               /></a>
              
             </div>
@@ -292,6 +292,10 @@
               %} {% if messages %} {% for message in messages %}
               <p class="flash-message">{{ message }}</p>
               {% endfor %} {% endif %} {% endwith %}
+              <div style="display: none;">
+              {{message_client_form.honeypot.label}}
+              {{message_client_form.honeypot()}}
+              </div>
             <div>
              {{ message_client_form.client_name.label }}
               {{ message_client_form.client_name (placeholder="Your name") }}
@@ -323,7 +327,7 @@
   <footer class="footer">
     <p class="copyright">Designed and made by Ivan Ravić&nbsp;&copy;&nbsp;<span class="year">2021</span></p>
   </footer>
-  <script defer src="../static/assets/script.js"></script>
+  <script defer src="{{url_for('static',filename='assets/script.js')}}"></script>
   <script defer src="https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js"></script>
 
   <script
