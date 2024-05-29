@@ -1,6 +1,6 @@
 from flask import Flask, render_template, url_for, redirect, flash, send_from_directory
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, TextAreaField, EmailField, DataRequired
+from wtforms import StringField, SubmitField, TextAreaField, EmailField
 from wtforms.validators import InputRequired
 from flask_wtf.csrf import CSRFProtect
 import os
@@ -49,7 +49,7 @@ class Client_Message(FlaskForm):
     client_name = StringField("Name", validators=[InputRequired()])
     client_email = EmailField("Email Address", validators=[InputRequired()])
     client_message = TextAreaField("Message", validators=[InputRequired()])
-    honeypot =StringField("Leave this  empty", validators=[DataRequired()])
+    honeypot =StringField("Leave this  empty")
     send = SubmitField("Get In Touch")
 
 @app.route("/", methods=["POST", "GET"])
@@ -91,3 +91,5 @@ def chat_app():
 def resume_pdf():
     return send_from_directory(".", "Ivan_Ravić_Resume_21_5_2024.pdf")
 
+if __name__ == "__main__":
+    app.run(debug=True)
