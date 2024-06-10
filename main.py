@@ -1,19 +1,27 @@
-from flask import Flask, render_template, url_for, redirect, flash, send_from_directory
+from flask import Flask, url_for, redirect, flash, render_template_string
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, TextAreaField, EmailField
-from wtforms.validators import DataRequired, InputRequired
-import os
+from wtforms.validators import InputRequired
+from flask_wtf.csrf import CSRFProtect
 import smtplib
+import aws_lambda_wsgi
+import boto3
 
 
-import logging
 
 app = Flask(__name__)
-handler = logging.FileHandler('./app.log')  # errors logged to this file
-handler.setLevel(logging.ERROR)  # only log errors and above
-app.logger.addHandler(handler)  # attach the handler to the app's logger
 
-app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
+
+s3 = boto3.client("s3")
+ssm = boto3.client("ssm")
+
+def get_secret(secret_name):
+    response = ssm.get_parameter(Name=secret_name, WithDecryption=True)
+    return response["Parameter"]["Value"]
+
+app.config['SECRET_KEY'] = get_secret("/portfolio/secret_key")
+csrf = CSRFProtect(app)
+
 EMAIL_IVAN_RAVIC = "ravic.ivan88@gmail.com"
 app.config['DEBUG'] = True
 app.config['TESTING'] = False
@@ -21,56 +29,54 @@ app.config['MAIL_SERVER'] = "smtp.gmail.com"
 app.config['MAIL_PORT'] = 587
 app.config['MAIL_USE_TTL'] = True
 app.config['MAIL_USE_SSL'] = False
-# app.config['MAIL_DEBUG'] = True
-app.config['MAIL_USERNAME'] = os.getenv('MAIL_USERNAME')
-app.config['MAIL_PASSWORD'] = os.getenv('MAIL_PASSWORD')
-app.config['MAIL_DEFAULT_SENDER'] = os.getenv('MAIL_USERNAME')
+app.config['MAIL_USERNAME'] = get_secret('/portfolio/mail_username')
+app.config['MAIL_PASSWORD'] = get_secret('/portfolio/mail_password')
+app.config['MAIL_DEFAULT_SENDER'] = get_secret('/portfolio/mail_username')
 app.config['MAIL_MAX_EMAILS'] = None
-# app.config['MAIL_SUPRESS_SEND'] = False
 app.config['MAIL_ASCII_ATTACHMENT'] = False
 
 # FORM FOR MESSAGE
 class Client_Message(FlaskForm):
-  client_name = StringField("Name", validators = [InputRequired()])
-  client_email = EmailField("Email Address", validators = [InputRequired()])
-  client_message = TextAreaField("Message", validators = [InputRequired()])
-  send = SubmitField("Get In Touch")
-
+    client_name = StringField("Name", validators=[InputRequired()])
+    client_email = EmailField("Email Address", validators=[InputRequired()])
+    client_message = TextAreaField("Message", validators=[InputRequired()])
+    honeypot =StringField("Leave this  empty")
+    send = SubmitField("Get In Touch")
+    
 @app.route("/", methods=["POST", "GET"])
 def home():
+    bucket_name = "ivan-ravic-website-dev"
+    key = "index.html"
+    file_object = s3.get_object(Bucket=bucket_name, Key=key)
+    file_content = file_object["Body"].read().decode("utf-8")
 
-  message_client_form = Client_Message()
+    message_client_form = Client_Message()
 
-  if message_client_form.validate_on_submit():
-        with smtplib.SMTP(app.config['MAIL_SERVER'], port=app.config['MAIL_PORT']) as connection:
-          connection.starttls()
-          connection.login(user=app.config['MAIL_USERNAME'], password=app.config['MAIL_PASSWORD'])
-          connection.sendmail(from_addr=app.config['MAIL_USERNAME'], to_addrs=f"{EMAIL_IVAN_RAVIC}",
-                              msg=f"Subject:{message_client_form.client_name.data}\n\n{message_client_form.client_message.data}\n\nClient email address: {message_client_form.client_email.data}")
-          flash("Message is send. Thanks.")
-        return redirect(url_for("home", _anchor='contact'))
+    if message_client_form.validate_on_submit():
+        if message_client_form.honeypot.data:
+            return render_template_string(file_content)
         
-  return render_template("index.html", message_client_form=message_client_form)
+        with smtplib.SMTP(app.config['MAIL_SERVER'], port=app.config['MAIL_PORT']) as connection:
+            connection.starttls()
+            connection.login(user=app.config['MAIL_USERNAME'], password=app.config['MAIL_PASSWORD'])
+            connection.sendmail(
+                from_addr=app.config['MAIL_USERNAME'],
+                to_addrs=EMAIL_IVAN_RAVIC,
+                msg=f"Subject:{message_client_form.client_name.data}\n\n{message_client_form.client_message.data}\n\nClient email address: {message_client_form.client_email.data}"
+            )
+            flash("Message is sent. Thanks.")
+        
+        return render_template_string(file_content, _anchor="contact")
 
-@app.route("/gaginislatkisi", methods=["POST", "GET"])
-def gaginislatkisi():
-  return render_template("project_1_describe.html")
+   
 
-@app.route("/follower_checker", methods=["POST", "GET"])
-def follower_checker():
-  return render_template("project_2_describe.html")
+    return render_template_string(file_content, message_client_form=message_client_form)
 
-@app.route("/e-commerce", methods=["POST", "GET"])
-def e_commerce():
-  return render_template("e-commerce_project.html")
 
-@app.route("/chat-app", methods=["POST", "GET"])
-def chat_app():
-  return render_template("chat-app.html")
 
-@app.route("/resume_pdf")
-def resume_pdf():
-  return send_from_directory(".", "Ivan's Resume.pdf")
-  
-if __name__ == "__main__":
-  app.run(debug=True)
+# if __name__ == "__main__":
+#     app.run(debug=True)
+def lambda_handler(event, context):
+    return aws_lambda_wsgi.response(app, event, context)
+
+
