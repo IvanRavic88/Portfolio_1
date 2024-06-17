@@ -30,20 +30,11 @@ variable "region" {
   default = "eu-central-1"
 }
 
-variable "secret_key" {
-  type = string
-  description = "Value of the secret for mail sending"
-  
+variable "email_for_sending" {
+  description = "The email address from which the emails will be sent."
 }
 
-variable "mail_username" {
-  type = string
-  description = "Value of the mail username"
+variable "email_for_receiving" {
+  description = "The email address to which the emails will be sent."
   
 }
-
-variable "mail_password" {
-  type = string
-  description = "Value of the mail password"
-  
-  }

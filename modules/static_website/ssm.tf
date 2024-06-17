@@ -1,17 +1,11 @@
-resource "aws_ssm_parameter" "secret_key" {
-  name  = "/portfolio/secret_key"
-  type  = "SecureString"
-  value = var.secret_key
+resource "aws_ssm_parameter" "email_for_sending" {
+  name  = "/portfolio/email_for_sending"
+  type  = "String"
+  value = var.email_for_sending
 }
 
-resource "aws_ssm_parameter" "mail_username" {
-  name  = "/portfolio/mail_username"
-  type  = "SecureString"
-  value = var.mail_username
-}
-
-resource "aws_ssm_parameter" "mail_password" {
-  name  = "/portfolio/mail_password"
-  type  = "SecureString"
-  value = var.mail_password
+resource "aws_ssm_parameter" "email_for_receiving" {
+  name  = "/portfolio/email_for_receiving"
+  type  = "String"
+  value = var.email_for_receiving
 }

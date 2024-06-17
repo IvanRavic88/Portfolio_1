@@ -1,27 +1,20 @@
-resource "aws_cloudfront_distribution" "website_distribution" {
+resource "aws_cloudfront_distribution" "portfolio_distribution" {
   enabled             = true
   is_ipv6_enabled     = true
   default_root_object = var.default_document
 
   origin {
-    domain_name = aws_s3_bucket_website_configuration.website_bucket_config.website_endpoint
+    domain_name = aws_s3_bucket.portfolio_bucket.bucket_regional_domain_name
     origin_id   = var.bucket_name
 
-    custom_origin_config {
-      origin_protocol_policy   = "http-only"
-      origin_ssl_protocols     = ["TLSv1.2"]
-      http_port                = 80
-      https_port               = 443
+    s3_origin_config {
+      origin_access_identity = aws_cloudfront_origin_access_identity.website_oai.cloudfront_access_identity_path
     }
   }
 
-  custom_error_response {
-    error_code = 404
-    response_code = 404
-    response_page_path = "/${var.error_document}"
-  }
+ 
 
-  aliases = [ var.subdomain ]
+  aliases = [ var.domain, "www.${var.domain}"]
 
   restrictions {
     geo_restriction {
@@ -33,14 +26,14 @@ resource "aws_cloudfront_distribution" "website_distribution" {
   default_cache_behavior {
     viewer_protocol_policy = "redirect-to-https"
 
-    allowed_methods  = ["GET", "HEAD"]
-    cached_methods   = ["GET", "HEAD"]
-    target_origin_id = aws_s3_bucket.website_bucket.bucket
-
+    allowed_methods  = ["GET", "HEAD", "OPTIONS","POST", "PUT", "PATCH", "DELETE"]
+    cached_methods   = ["GET", "HEAD", "OPTIONS"]
+    target_origin_id = aws_s3_bucket.portfolio_bucket.bucket
     compress = true
 
     forwarded_values {
       query_string = false
+      headers = [ "Origin", "Access-Control-Request-Headers", "Access-Control-Request-Method"]
 
       cookies {
         forward = "none"
@@ -49,8 +42,14 @@ resource "aws_cloudfront_distribution" "website_distribution" {
   }
 
   viewer_certificate {
-    acm_certificate_arn      = aws_acm_certificate.s3_certification.arn
+    acm_certificate_arn      = aws_acm_certificate.domain_name_certification.arn
     ssl_support_method       = "sni-only"
     minimum_protocol_version = "TLSv1.2_2021"
   }
+  
+}
+
+resource "aws_cloudfront_origin_access_identity" "website_oai" {
+  comment = "OAI for my website bucket"
+  
 }

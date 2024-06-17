@@ -418,20 +418,27 @@ $img_path: "../img/svg"
 .message_button.btn--form
   background-color: $just-black-color
   color: $just-white-color
+  border: 1px solid $just-black-color
+  padding: 10px 20px
   width: 50%
   cursor: pointer
-  transition: all 0.3s
+  transition: all 0.3s ease-in-out
+  
+  border-radius: 9px
   &:link, &:visited
     color:$main-accent-color
     background-color:  $just-black-color
   &:active, &:hover
-    background-color:  $just-black-color
-    color:$main-accent-color
+    background-color:  $main-accent-color
+    color:$just-black-color
+    border-color: $main-accent-color
     
 .flash-message
   color: $just-white-color
   font-size: 1.8rem
-
+  &error
+    color: #FF5252
+    
 .to-the-top-link
   display: flex
   justify-content: center

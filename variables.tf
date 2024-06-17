@@ -22,18 +22,12 @@ variable "region" {
   default = "eu-central-1"
 }
 
-variable "secret_key" {
-  type = string
-  description = "Value of the secret for mail sending"
-}
-
-variable "mail_username" {
-  type = string
-  description = "Value of the mail username" 
+variable "email_for_receiving" {
+  description = "Email address to receive notifications"
   
 }
 
-variable "mail_password" {
-  type = string
-  description = "Value of the mail password"
-   }
+variable "email_for_sending" {
+  description = "Email address to send notifications"
+  
+}

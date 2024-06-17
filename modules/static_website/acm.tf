@@ -3,9 +3,9 @@ provider "aws"{
   region = "us-east-1"
 }
 
-resource "aws_acm_certificate" "domain_cert" {
+resource "aws_acm_certificate" "api_certification" {
   provider = aws.us-east-1
-  domain_name       = "*.${var.domain}"
+  domain_name       = "api.${var.domain}"
   validation_method = "DNS"
 
   lifecycle {
@@ -13,11 +13,12 @@ resource "aws_acm_certificate" "domain_cert" {
   }
 }
 
-resource "aws_acm_certificate" "s3_certification"{
+resource "aws_acm_certificate" "domain_name_certification" {
   provider = aws.us-east-1
-  domain_name       = var.subdomain
+  domain_name       = var.domain
   validation_method = "DNS"
 
+  subject_alternative_names = [ "*.${var.domain}" ]
   lifecycle {
     create_before_destroy = true
   }

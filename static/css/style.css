@@ -1,8 +1,7 @@
-.main-nav-link:link,
-.main-nav-link:visited {
+.main-nav-link:link, .main-nav-link:visited {
   display: inline-block;
   text-decoration: none;
-  color: #f8f8f8;
+  color: #F8F8F8;
   font-weight: 500;
   font-size: 1.8rem;
   transition: all 0.3s;
@@ -26,18 +25,15 @@
   align-items: center;
 }
 
-.main-nav-link:hover,
-.main-nav-link:active {
-  color: #b8405e;
+.main-nav-link:hover, .main-nav-link:active {
+  color: #B8405E;
 }
 
-.nav-resume:link,
-.nav-resume:visited {
-  color: #ffa818;
+.nav-resume:link, .nav-resume:visited {
+  color: #FFA818;
 }
-.nav-resume:active,
-.nav-resume:hover {
-  color: #b8405e;
+.nav-resume:active, .nav-resume:hover {
+  color: #B8405E;
 }
 
 .btn-mobile-nav {
@@ -50,15 +46,15 @@
 .icon-mobile-nav {
   height: 4.8rem;
   width: 4.8rem;
-  color: #f8f8f8;
+  color: #F8F8F8;
 }
 
-.icon-mobile-nav[name="close-outline"] {
+.icon-mobile-nav[name=close-outline] {
   display: none;
 }
 
 .section-hero {
-  background-image: url("../img/svg/hero-img.webp");
+  background-image: url("../img/svg/hero-img.png");
   background-size: cover;
   background-position: center;
   padding: 0rem 12.8rem 12.8rem;
@@ -79,12 +75,12 @@
   font-size: 4rem;
   line-height: 1.6;
   margin-bottom: 4.8rem;
-  color: #f8f8f8;
+  color: #F8F8F8;
 }
 
 .hero-title {
   font-size: 2.4rem;
-  color: #b8405e;
+  color: #B8405E;
   padding-bottom: 2rem;
   margin-top: 7rem;
 }
@@ -126,19 +122,18 @@
 
 .project-card {
   display: grid;
-  color: #f8f8f8;
+  color: #F8F8F8;
   background-image: url("../img/gagini_slatkisi.png");
   background-size: cover;
   background-position: center;
   box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.5);
-  border: 2px solid #ffa818;
+  border: 2px solid #FFA818;
   max-width: 50rem;
   border-radius: 0.5rem;
   overflow: hidden;
   transition: transform 500ms ease;
 }
-.project-card:hover,
-.project-card:focus-within {
+.project-card:hover, .project-card:focus-within {
   transform: scale(1.05);
 }
 
@@ -148,10 +143,6 @@
 
 .e-commerce {
   background-image: url("../img/e-commerce.png");
-}
-
-.chat-app {
-  background-image: url("../img/image-for-chat-app.png");
 }
 
 .card-content {
@@ -180,7 +171,7 @@
   text-transform: uppercase;
   font-weight: 700;
   font-size: 1.8rem;
-  color: #ffa818;
+  color: #FFA818;
 }
 
 .project-header::after {
@@ -190,7 +181,7 @@
   bottom: 0;
   height: 3px;
   width: calc(100% + 1.5rem);
-  background: #b8405e;
+  background: #B8405E;
   transform-origin: left;
   transition: transform 500ms ease;
 }
@@ -207,21 +198,19 @@
 .project-links span {
   font-size: 1.8rem;
   font-weight: 700;
-  color: #ffa818;
+  color: #FFA818;
 }
 
-.link-project:link,
-.link-project:visited {
+.link-project:link, .link-project:visited {
   display: inline-block;
-  color: #f8f8f8;
+  color: #F8F8F8;
   text-decoration: none;
   font-size: 1.8rem;
   margin-top: 2rem;
   transition: all 0.3s;
 }
-.link-project:hover,
-.link-project:active {
-  color: #ffa818;
+.link-project:hover, .link-project:active {
+  color: #FFA818;
 }
 
 .project-describe {
@@ -249,15 +238,12 @@
   .project-header::after {
     transform: scaleX(0);
   }
-  .link-project:hover,
-  .link-project:active {
-    color: #ffa818;
+  .link-project:hover, .link-project:active {
+    color: #FFA818;
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
+  *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
@@ -274,7 +260,7 @@
   justify-content: center;
   flex-wrap: wrap;
   color: #030200;
-  background-color: #ffa818;
+  background-color: #FFA818;
   display: inline-block;
   padding: 0.4rem 0.8rem;
   font-size: 1.2rem;
@@ -303,15 +289,13 @@
 }
 
 .skill-icon {
-  filter: invert(2%) sepia(15%) saturate(3297%) hue-rotate(12deg)
-    brightness(91%) contrast(101%);
+  filter: invert(2%) sepia(15%) saturate(3297%) hue-rotate(12deg) brightness(91%) contrast(101%);
   width: 5.4rem;
   height: 5.4rem;
 }
 .skill-icon:hover {
   transform: scale(1.1);
-  filter: invert(71%) sepia(85%) saturate(1658%) hue-rotate(345deg)
-    brightness(101%) contrast(101%);
+  filter: invert(71%) sepia(85%) saturate(1658%) hue-rotate(345deg) brightness(101%) contrast(101%);
 }
 
 .skill-icon-container {
@@ -328,20 +312,16 @@
   font-weight: 700;
 }
 
-.skill,
-.about {
+.skill, .about {
   padding: 12.8rem;
   position: relative;
 }
 
-.skill-container,
-about-container {
+.skill-container, about-container {
   display: grid;
 }
 
-.skill-describe,
-.about-describe,
-.cta-text {
+.skill-describe, .about-describe, .cta-text {
   font-size: 2rem;
   line-height: 1.8;
   margin-bottom: 2.4rem;
@@ -364,7 +344,7 @@ about-container {
 }
 
 .about-icon {
-  color: #ffa818;
+  color: #FFA818;
   height: 4.4rem;
   width: 4.4rem;
   background-color: #030200;
@@ -402,11 +382,8 @@ about-container {
   margin-bottom: 4.4rem;
 }
 
-.github-icon:hover,
-.email-icon:hover,
-.linkedin-icon:hover {
-  filter: invert(71%) sepia(85%) saturate(1658%) hue-rotate(345deg)
-    brightness(101%) contrast(101%);
+.github-icon:hover, .email-icon:hover, .linkedin-icon:hover {
+  filter: invert(71%) sepia(85%) saturate(1658%) hue-rotate(345deg) brightness(101%) contrast(101%);
   transform: scale(1.1);
   transition: transform 0.3s ease;
 }
@@ -421,14 +398,14 @@ about-container {
   transition: transform 0.3s ease;
 }
 .copy-mail:hover {
-  color: #ffa818;
+  color: #FFA818;
   transform: scale(1.05);
 }
 
 .copy-message {
   display: none;
   font-size: 1.2rem;
-  color: #ffa818;
+  color: #FFA818;
   font-weight: 400;
 }
 
@@ -436,7 +413,7 @@ about-container {
   display: grid;
   column-gap: 3.2rem;
   row-gap: 2.4rem;
-  background-image: linear-gradient(to right bottom, #030200, #ffa818);
+  background-image: linear-gradient(to right bottom, #030200, #FFA818);
   overflow: hidden;
   padding: 4.4rem;
   border-radius: 9px;
@@ -446,10 +423,9 @@ about-container {
   font-size: 1.6rem;
   font-weight: 500;
   margin-bottom: 1.2rem;
-  color: #f8f8f8;
+  color: #F8F8F8;
 }
-.cta-form input,
-.cta-form textarea {
+.cta-form input, .cta-form textarea {
   resize: none;
   width: 100%;
   padding: 1.2rem;
@@ -457,32 +433,37 @@ about-container {
   font-family: inherit;
   color: #030200;
   border: none;
-  background-color: #f8f8f8;
+  background-color: #F8F8F8;
   border-radius: 9px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .message_button.btn--form {
   background-color: #030200;
-  color: #f8f8f8;
+  color: #F8F8F8;
+  border: 1px solid #030200;
+  padding: 10px 20px;
   width: 50%;
   cursor: pointer;
-  transition: all 0.3s;
+  transition: all 0.3s ease-in-out;
+  border-radius: 9px;
 }
-.message_button.btn--form:link,
-.message_button.btn--form:visited {
-  color: #ffa818;
+.message_button.btn--form:link, .message_button.btn--form:visited {
+  color: #FFA818;
   background-color: #030200;
 }
-.message_button.btn--form:active,
-.message_button.btn--form:hover {
-  background-color: #030200;
-  color: #ffa818;
+.message_button.btn--form:active, .message_button.btn--form:hover {
+  background-color: #FFA818;
+  color: #030200;
+  border-color: #FFA818;
 }
 
 .flash-message {
-  color: #f8f8f8;
+  color: #F8F8F8;
   font-size: 1.8rem;
+}
+.flash-messageerror {
+  color: #FF5252;
 }
 
 .to-the-top-link {
@@ -499,12 +480,10 @@ about-container {
   margin-bottom: 9.6rem;
   transition: transform 0.3s ease;
 }
-.to-the-top:link,
-.to-the-top:visited {
-  color: #ffa818;
+.to-the-top:link, .to-the-top:visited {
+  color: #FFA818;
 }
-.to-the-top:active,
-.to-the-top:hover {
+.to-the-top:active, .to-the-top:hover {
   color: #030200;
   transform: scale(1.05);
 }
@@ -528,22 +507,18 @@ about-container {
   padding: 0rem 4.4rem 4.4rem;
 }
 
-.main-nav-link.project-page:link,
-.main-nav-link.project-page:visited {
+.main-nav-link.project-page:link, .main-nav-link.project-page:visited {
   color: #030200;
 }
-.main-nav-link.project-page:hover,
-.main-nav-link.project-page:active {
-  color: #b8405e;
+.main-nav-link.project-page:hover, .main-nav-link.project-page:active {
+  color: #B8405E;
 }
 
-.nav-resume.project-page:link,
-.nav-resume.project-page:visited {
-  color: #ffa818;
+.nav-resume.project-page:link, .nav-resume.project-page:visited {
+  color: #FFA818;
 }
-.nav-resume.project-page:active,
-.nav-resume.project-page:hover {
-  color: #b8405e;
+.nav-resume.project-page:active, .nav-resume.project-page:hover {
+  color: #B8405E;
 }
 
 .icon-mobile-nav.project-page {

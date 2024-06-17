@@ -1,82 +1,93 @@
-from flask import Flask, url_for, redirect, flash, render_template_string
-from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, TextAreaField, EmailField
-from wtforms.validators import InputRequired
-from flask_wtf.csrf import CSRFProtect
-import smtplib
-import aws_lambda_wsgi
+import json
 import boto3
+from pydantic import BaseModel, EmailStr, ValidationError, constr
+from typing import Optional
+import logging
+# Pydantic model for form data validation
+class FormData(BaseModel):
+    client_name: constr(min_length=1)
+    client_email: EmailStr
+    client_message: constr(min_length=1)
+    honeypot_field_fullname: Optional[str] = None
+    honeypot_field_organization: Optional[str] = None
 
+# Initialize boto3 clients
+ses = boto3.client('ses', region_name='eu-central-1')
+ssm = boto3.client('ssm', region_name='eu-central-1')
+email_for_sending = ssm.get_parameter(Name='/portfolio/email_for_sending')['Parameter']['Value']
+email_for_receiving = ssm.get_parameter(Name='/portfolio/email_for_receiving')['Parameter']['Value']
 
-
-app = Flask(__name__)
-
-
-s3 = boto3.client("s3")
-ssm = boto3.client("ssm")
-
-def get_secret(secret_name):
-    response = ssm.get_parameter(Name=secret_name, WithDecryption=True)
-    return response["Parameter"]["Value"]
-
-app.config['SECRET_KEY'] = get_secret("/portfolio/secret_key")
-csrf = CSRFProtect(app)
-
-EMAIL_IVAN_RAVIC = "ravic.ivan88@gmail.com"
-app.config['DEBUG'] = True
-app.config['TESTING'] = False
-app.config['MAIL_SERVER'] = "smtp.gmail.com"
-app.config['MAIL_PORT'] = 587
-app.config['MAIL_USE_TTL'] = True
-app.config['MAIL_USE_SSL'] = False
-app.config['MAIL_USERNAME'] = get_secret('/portfolio/mail_username')
-app.config['MAIL_PASSWORD'] = get_secret('/portfolio/mail_password')
-app.config['MAIL_DEFAULT_SENDER'] = get_secret('/portfolio/mail_username')
-app.config['MAIL_MAX_EMAILS'] = None
-app.config['MAIL_ASCII_ATTACHMENT'] = False
-
-# FORM FOR MESSAGE
-class Client_Message(FlaskForm):
-    client_name = StringField("Name", validators=[InputRequired()])
-    client_email = EmailField("Email Address", validators=[InputRequired()])
-    client_message = TextAreaField("Message", validators=[InputRequired()])
-    honeypot =StringField("Leave this  empty")
-    send = SubmitField("Get In Touch")
-    
-@app.route("/", methods=["POST", "GET"])
-def home():
-    bucket_name = "ivan-ravic-website-dev"
-    key = "index.html"
-    file_object = s3.get_object(Bucket=bucket_name, Key=key)
-    file_content = file_object["Body"].read().decode("utf-8")
-
-    message_client_form = Client_Message()
-
-    if message_client_form.validate_on_submit():
-        if message_client_form.honeypot.data:
-            return render_template_string(file_content)
-        
-        with smtplib.SMTP(app.config['MAIL_SERVER'], port=app.config['MAIL_PORT']) as connection:
-            connection.starttls()
-            connection.login(user=app.config['MAIL_USERNAME'], password=app.config['MAIL_PASSWORD'])
-            connection.sendmail(
-                from_addr=app.config['MAIL_USERNAME'],
-                to_addrs=EMAIL_IVAN_RAVIC,
-                msg=f"Subject:{message_client_form.client_name.data}\n\n{message_client_form.client_message.data}\n\nClient email address: {message_client_form.client_email.data}"
-            )
-            flash("Message is sent. Thanks.")
-        
-        return render_template_string(file_content, _anchor="contact")
-
-   
-
-    return render_template_string(file_content, message_client_form=message_client_form)
-
-
-
-# if __name__ == "__main__":
-#     app.run(debug=True)
+logger = logging.getLogger()
+logger.setLevel(logging.INFO)
 def lambda_handler(event, context):
-    return aws_lambda_wsgi.response(app, event, context)
+    
+    try:
+        body = json.loads(event['body'])
+        form_data = FormData(**body)
+        
+        # Checking if the honeypot fields are not empty
+        if form_data.honeypot_field_fullname or form_data.honeypot_field_organization:
+            return {
+                'statusCode': 400,
+                'body': json.dumps({'message': 'Honeypot fields must be empty'})
+            }
 
+        # Sending mail using Amazon SES
+        ses.send_email(
+            Source=email_for_sending,
+            Destination={
+                'ToAddresses': [email_for_receiving]
+            },
+            Message={
+                'Subject': {
+                    'Data': 'New Form Submission from Portfolio Website'
+                },
+                'Body': {
+                    'Html': {
+                        'Data': f"""
+                        <h1 style="color: blue;">New Form Submission</h1>
+                        <p><strong>Name of client:</strong> {form_data.client_name}</p>
+                        <p><strong style="color: green;">Client email:</strong> {form_data.client_email}</p>
+                        <p><strong style="color: green;">Message from client on portfolio website:</strong></p>
+                        <p>{form_data.client_message}</p>
+                        """
+                    }
+                }
+            }
+        )
 
+        # Determining the origin of the request correctly
+        origin = event['headers'].get('origin', '')
+        logging.info(f"Origin: {origin}")
+        # Defining response headers
+        allowed_origins = ['https://ivanravic.com', 'https://www.ivanravic.com']
+
+        # Checking if the origin is allowed
+        if origin in allowed_origins:
+            response_headers = {
+                'Access-Control-Allow-Origin': origin,
+                'Access-Control-Allow-Headers': 'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token, X-Amz-Invocation-Type',
+                'Access-Control-Allow-Methods': "POST,OPTIONS,GET"
+            }
+        else:
+            return {
+                'statusCode': 403,
+                'body': json.dumps({'message': 'Origin not allowed'})
+            }
+
+        return {
+            'statusCode': 200,
+            'headers': response_headers,
+            'body': json.dumps({'message': 'Email sent successfully, I will get back to you soon!'})
+        }
+
+    except ValidationError as e:
+        return {
+            'statusCode': 400,
+            'body': json.dumps({'message': 'Validation failed', 'errors': e.errors()})
+        }
+    except Exception as e:
+        return {
+            'statusCode': 500,
+            'body': json.dumps({'message': 'An unexpected error occurred', 'error': str(e)})
+        }

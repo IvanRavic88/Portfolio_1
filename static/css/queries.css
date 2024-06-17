@@ -137,7 +137,7 @@
     gap: 4.8rem;
   }
   .main-nav-link:link,
-.main-nav-link:visited {
+  .main-nav-link:visited {
     font-size: 3rem;
   }
   .main-nav-link.project-page:link, .main-nav-link.project-page:visited {
