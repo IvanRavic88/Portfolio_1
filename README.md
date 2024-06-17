@@ -10,6 +10,7 @@ The primary goal of this project is to provide a performant and scalable portfol
     Backend: AWS Lambda functions for handling API requests.
     Email Functionality: AWS Lambda triggered by API Gateway POST requests for form submissions.
     Infrastructure: Managed with AWS services including S3, API Gateway, Lambda, CloudFront, SSM, Route 53, and ACM for SSL certificates.
+    Deployment: Infrastructure as Code (IaC) managed using Terraform.
 
 🏗️ Architecture
 
@@ -33,4 +34,4 @@ The primary goal of this project is to provide a performant and scalable portfol
         AWS Systems Manager (SSM): Manages parameters and secrets.
         Amazon Route 53: Handles DNS routing.
         AWS Certificate Manager (ACM): Provides SSL/TLS certificates for secure communications.
-        SES: Sends emails triggered by form submissions.
+        Terraform: Used for defining and deploying the infrastructure.
